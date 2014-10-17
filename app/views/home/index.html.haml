@@ -1,5 +1,22 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
-home page
-
-= link_to "sign in", "/users/sign_in"
+- @item_lists.each do |k,items|
+  .category_div
+    .category_title
+      %b= k
+    %br
+    .row
+      - item1 = items.in_groups(2)
+      .col-md-6
+        %table.table
+          - (item1[0] || []).each do |item|
+            %tr
+              %td= item.name
+              %td= item.price
+              %td= item.quantity
+      .col-md-6
+        %table.table
+          - (item1[1] || []).each do |item|
+            - if  item.try(:id)
+              %tr
+                %td= item.name
+                %td= item.price
+                %td= item.quantity

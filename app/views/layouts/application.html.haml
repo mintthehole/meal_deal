@@ -1,0 +1,71 @@
+!!!
+%html
+  %head
+    %title Meal
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = stylesheet_link_tag "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+    = csrf_meta_tags
+  %body
+    #page.clearfix{:style=>"position:relative"}
+      / column
+      #page_position_content.position_content
+        #u332.gradient.clearfix.colelem
+          / column
+          #u332_position_content.position_content
+            #pu69.clearfix.colelem
+              / group
+              #u69.clip_frame.grpelem
+                / image
+                %img#u69_img.block{:alt => "", :height => "115", :src => "/assets/logo.png", :width => "300"}/
+              #u86.clip_frame.grpelem
+                / image
+                %img#u86_img.block{:alt => "", :height => "46", :src => "/assets/facebook.png", :width => "43"}/
+              #u96.clip_frame.grpelem
+                / image
+                %img#u96_img.block{:alt => "", :height => "46", :src => "/assets/twitter.png", :width => "43"}/
+              #u91.clip_frame.grpelem
+                / image
+                %img#u91_img.block{:alt => "", :height => "46", :src => "/assets/google-plus.png", :width => "43"}/
+            #u85.colelem
+              / simple frame
+        #u682.clip_frame.colelem
+          / image
+          %img#u682_img.block{:alt => "", :height => "144", :src => "/assets/top.jpg", :width => "960"}/
+        %ul#menuu363.MenuBar.clearfix.colelem
+          / horizontal box
+          %li#u371.MenuItemContainer.clearfix.grpelem
+            / vertical box
+            %a#u372.nonblock.nontext.MenuItem.MenuItemWithSubMenu.MuseMenuActive.clearfix.colelem{:href => root_path}
+              / horizontal box
+              #u374-4.MenuItemLabel.NoWrap.clearfix.grpelem
+                / content
+                %p Home
+          %li#u364.MenuItemContainer.clearfix.grpelem
+            / vertical box
+            %a#u367.nonblock.nontext.MenuItem.MenuItemWithSubMenu.clearfix.colelem{:href => "about_us"}
+              / horizontal box
+              #u369-4.MenuItemLabel.NoWrap.clearfix.grpelem
+                / content
+                %p About
+          %li#u406.MenuItemContainer.clearfix.grpelem
+            / vertical box
+            %a#u407.nonblock.nontext.MenuItem.MenuItemWithSubMenu.clearfix.colelem{:href => "contact--feedback"}
+              / horizontal box
+              #u408-4.MenuItemLabel.NoWrap.clearfix.grpelem
+                / content
+                %p Contact | Feedback
+        %div{:style => "padding:10px;padding-top:320px;"}
+          = yield
+        #u322.clearfix.colelem{:style => "bottom:0;position:absolute;"}
+          / group
+          %a#u327-4.nonblock.nontext.clearfix.grpelem{:href => "terms-of-use.html"}
+            / content
+            %p currypots.com © 2014&nbsp; By using our site you agree to our terms of use.
+          #u329-6.pointer_cursor.clearfix.grpelem{:title => "Create a online store Today!"}
+            / content
+            %a.block{:href => "http://www.webasiansystems.com", :target => "_blank"}
+            %p
+              Designed By
+              %a.nonblock{:href => "http://www.webasiansystems.com"}
+                %span#u329-2 Web Asian systems

@@ -4,7 +4,8 @@ Meal::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   get "dashboard/index"
-
+  match "about_us" => "home#about_us"
+  match "contact--feedback" => "home#contact--feedback"
   resources :orders
 
   devise_for :users
