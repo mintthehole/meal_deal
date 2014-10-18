@@ -22,14 +22,14 @@
                   %td= item.price
                   %td= item.quantity
 .row
-  - @item_lists.each do |k,items|
-    .col-xs-6
+  - @categories.each do |cat|
+    .col-xs-12.col-sm-6.col-md-6.col-lg-6
       .panel.panel-default
         / Default panel contents
         .panel-heading 
-          = k
+          = cat.name
         .panel-body
-          %p Menu Description
+          %p=cat.description
         %table.table
           %tr
             %th
@@ -43,7 +43,7 @@
             %th
               Action
 
-          - items.each do |item|
+          - cat.items.each do |item|
             %tr
               %td= item.name
               %td= item.price
