@@ -1,0 +1,27 @@
+.navbar.navbar-default{:role => "navigation", :style => "height:230px;background-color:#FFF;border-color:#FFF"}
+  .container{:style => "padding:0px"}
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => root_path}
+        = image_tag "logo.png", :size => "150x50"
+        = image_tag "top.jpg", :width => "99%"
+
+    .pull-right{:style => "margin-top: -50px; margin-right: 20px;"}
+      .collapse.navbar-collapse
+        - if current_user
+          %ul.nav.navbar-nav.navbar-right
+            %li{:role => "presentation"}
+              %a{:href => edit_user_registration_path, :role => "menuitem", :tabindex => "-1"} 
+                = current_user.email
+            %li{:role => "presentation"}
+              %a{:href => edit_user_registration_path, :role => "menuitem", :tabindex => "-1"} Edit Profile
+            %li{:role => "presentation"}
+              = link_to "Signout", destroy_user_session_path, :method => :delete
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Signup", new_user_registration_path
+            %li= link_to "Signin", new_user_session_path

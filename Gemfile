@@ -38,3 +38,5 @@ gem 'jquery-rails', :git => 'git@github.com:indirect/jquery-rails.git'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem "twitter-bootstrap-rails"

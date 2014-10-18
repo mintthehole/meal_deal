@@ -1,22 +1,58 @@
-- @item_lists.each do |k,items|
-  .category_div
-    .category_title
-      %b= k
-    %br
-    .row
-      - item1 = items.in_groups(2)
-      .col-md-6
-        %table.table
-          - (item1[0] || []).each do |item|
-            %tr
-              %td= item.name
-              %td= item.price
-              %td= item.quantity
-      .col-md-6
-        %table.table
-          - (item1[1] || []).each do |item|
-            - if  item.try(:id)
+.hide
+  - @item_lists.each do |k,items|
+    .category_div
+      .category_title
+        %b= k
+      %br
+      .row
+        - item1 = items.in_groups(2)
+        .col-md-6
+          %table.table
+            - (item1[0] || []).each do |item|
               %tr
                 %td= item.name
                 %td= item.price
                 %td= item.quantity
+        .col-md-6
+          %table.table
+            - (item1[1] || []).each do |item|
+              - if  item.try(:id)
+                %tr
+                  %td= item.name
+                  %td= item.price
+                  %td= item.quantity
+.row
+  - @item_lists.each do |k,items|
+    .col-xs-6
+      .panel.panel-default
+        / Default panel contents
+        .panel-heading 
+          = k
+        .panel-body
+          %p Menu Description
+        %table.table
+          %tr
+            %th
+              Name
+            %th
+              Price
+            %th
+              Available Quantity
+            %th
+              Order
+            %th
+              Action
+
+          - items.each do |item|
+            %tr
+              %td= item.name
+              %td= item.price
+              %td= item.quantity
+              - if current_user
+                %td= text_field_tag :order, nil, :size => 10, :class => [:small]
+                %td= link_to "Add to cart", "", :class => "btn btn-primary btn-xs"
+              - else
+                %td= text_field_tag :order, nil, :size => 10, :class => [:small]
+                %td= link_to "Add to cart", new_user_session_path, :class => "btn btn-primary btn-xs"
+
+

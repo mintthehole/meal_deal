@@ -5,18 +5,19 @@
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
-  <div><%= f.label :phone_no, "Phone Number" %>
-  <%= f.text_field :phone_no %></div>
-
-  <div><%= f.label :building%>
-  <%= f.select :building_id,options_for_select(building) %></div>
-
+  
 
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
+  <div><%= f.label :phone_no, "Phone Number" %><br />
+  <%= f.text_field :phone_no %></div>
+
+  <div><%= f.label :building%><br />
+  <%= f.select :building_id,options_for_select(building) %></div>
+  <br />
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
