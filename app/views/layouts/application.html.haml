@@ -19,3 +19,16 @@
           %a.block{:href => "http://www.webasiansystems.com", :target => "_blank"}
             %a.nonblock{:href => "http://www.webasiansystems.com"}
               %span#u329-2 Web Asian systems
+    .modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} &times;
+              %span.sr-only Close
+            %h4.modal-title Your Food Cart
+          .modal-body
+            %p Please add items by clicking "Add to Cart"
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Order More
+            %button.btn.btn-primary{:type => "button"} Checkout

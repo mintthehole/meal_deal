@@ -1,28 +1,5 @@
-.hide
-  - @item_lists.each do |k,items|
-    .category_div
-      .category_title
-        %b= k
-      %br
-      .row
-        - item1 = items.in_groups(2)
-        .col-md-6
-          %table.table
-            - (item1[0] || []).each do |item|
-              %tr
-                %td= item.name
-                %td= item.price
-                %td= item.quantity
-        .col-md-6
-          %table.table
-            - (item1[1] || []).each do |item|
-              - if  item.try(:id)
-                %tr
-                  %td= item.name
-                  %td= item.price
-                  %td= item.quantity
 .row
-  - @categories.each do |cat|
+  - @item_categories.each do |cat|
     .col-xs-12.col-sm-6.col-md-6.col-lg-6
       .panel.panel-default
         / Default panel contents
@@ -49,8 +26,10 @@
               %td= item.price
               %td= item.quantity
               - if current_user
-                %td= text_field_tag :order, nil, :size => 10, :class => [:small]
-                %td= link_to "Add to cart", "", :class => "btn btn-primary btn-xs"
+                = form_tag add_to_cart_orders_path, :remote => true do
+                  = hidden_field_tag :item_id, item.id
+                  %td= text_field_tag :order, nil, :size => 10, :class => [:small], :required => true
+                  %td= submit_tag "Add to cart", :class => "btn btn-primary btn-xs", :remote => :true
               - else
                 %td= text_field_tag :order, nil, :size => 10, :class => [:small]
                 %td= link_to "Add to cart", new_user_session_path, :class => "btn btn-primary btn-xs"

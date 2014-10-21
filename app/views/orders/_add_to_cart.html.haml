@@ -1,0 +1,33 @@
+%table.table
+  %tr
+    %th
+      Item
+    %th
+      Price
+    %th
+    %th
+      Quantity
+    %th
+      Total
+  - @cart_hash.each do |hash|
+    %tr
+      %td
+        = hash[:name]
+      %td
+        = hash[:price]
+      %td
+        X
+      %td
+        = hash[:order]
+      %td
+        = hash[:item_price]
+  %tr
+    %td
+    %td
+    %td
+    %td
+      %b Total Price
+    %td{:colspan => 6}
+      = @total
+
+  

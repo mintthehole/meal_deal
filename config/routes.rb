@@ -4,12 +4,15 @@ Meal::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   get "dashboard/index"
-  match "about_us" => "home#about_us"
-  match "contact--feedback" => "home#contact--feedback"
-  resources :orders
+  match "about_us" => "home#about_us", :via => :get
+  match "contact--feedback" => "home#contact--feedback" , :via => :get
+  resources :orders do 
+    collection do
+      post 'add_to_cart'
+    end
+  end
 
   devise_for :users
-  ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
