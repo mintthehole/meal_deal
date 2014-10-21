@@ -10,4 +10,10 @@ class User < ActiveRecord::Base
   validates_presence_of :phone_no, :building_id
   belongs_to :building
   validates :phone_no, :numericality => true, :length => { :minimum => 10, :maximum => 10 }
+
+  has_many :orders
+
+  def name
+    email
+  end
 end

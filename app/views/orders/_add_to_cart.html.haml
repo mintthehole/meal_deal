@@ -3,8 +3,7 @@
     %th
       Item
     %th
-      Price
-    %th
+      Unit Price
     %th
       Quantity
     %th
@@ -16,8 +15,6 @@
       %td
         = hash[:price]
       %td
-        X
-      %td
         = hash[:order]
       %td
         = hash[:item_price]
@@ -25,9 +22,8 @@
     %td
     %td
     %td
-    %td
       %b Total Price
-    %td{:colspan => 6}
+    %td{:colspan => 4}
       = @total
 
   

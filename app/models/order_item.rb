@@ -5,10 +5,25 @@ class OrderItem < ActiveRecord::Base
   validates_presence_of :quantity, :unit_price
   after_create :detect_quantity_of_item
 
+  def self.save_order_items(order, cart_items)
+    cart_items.each do |item|
+      oi = OrderItem.new
+      oi.order = order
+      oi.quantity = item[:order]
+      oi.unit_price = item[:price]
+      oi.item_id = item[:id]
+      oi.save
+    end
+  end
+
   def detect_quantity_of_item
     old_qnty = item.quantity
     item.quantity = old_qnty - quantity
     item.save
+  end
+
+  def name
+    item.name
   end
 end
 

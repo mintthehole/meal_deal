@@ -10,7 +10,7 @@
 
   - @orders.each do |order|
     %tr
-      %td= order.user
+      %td= order.user.email
       %td= order.total_price
       %td= link_to 'Show', order
       %td= link_to 'Edit', edit_order_path(order)

@@ -10,6 +10,7 @@
     .container
       = render :partial => "layouts/header"
     .container
+      = bootstrap_flash
       = yield
     %footer{:style => "bottom:0px;background-color:#EEE"}     
       %hr 
@@ -31,4 +32,4 @@
             %p Please add items by clicking "Add to Cart"
           .modal-footer
             %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Order More
-            %button.btn.btn-primary{:type => "button"} Checkout
+            = link_to "Checkout", orders_path, :method => :post, :class => 'btn btn-primary'
