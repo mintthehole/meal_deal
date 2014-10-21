@@ -1,2 +1,6 @@
-$('.modal-body').html("<%= escape_javascript render :partial => 'add_to_cart' %>");
-$('.modal').modal('show');
+<% if @invalid_input %>
+  alert("Should be less than available quantity");
+<% else %>
+  $('.modal-body').html("<%= escape_javascript render :partial => 'add_to_cart' %>");
+  $('.modal').modal('show');
+<% end %>

@@ -2,9 +2,13 @@ class OrdersController < InheritedResources::Base
   before_filter :authenticate_user!
 
   def add_to_cart
-    session[:order] ||= {}
-    session[:order][params[:item_id]] = params[:order]
-    @cart_hash, @total = Order.build_cart(session[:order])
+    if params[:available_quantity] < params[:order] 
+      @invalid_input = true
+    else
+      session[:order] = {}
+      session[:order][params[:item_id]] = params[:order]
+      @cart_hash, @total = Order.build_cart(session[:order])
+    end
     respond_to do |format|
       format.js
     end
