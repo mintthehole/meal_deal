@@ -1,8 +1,14 @@
 ActiveAdmin.register Order do
-  index do    
+  index do
     column :user_name do |order|
       order.user.email
-    end    
+    end
+    column :phone_no do |order|
+      order.user.phone_no
+    end
+    column :building do |order|
+      order.user.building.name
+    end
     column :order_items do |order|
       order.item_with_quantity
     end
@@ -11,5 +17,5 @@ ActiveAdmin.register Order do
       order.created_at.strftime("%d %b %Y")
     end
   end
-  
+
 end
