@@ -22,7 +22,7 @@ group :assets do
   gem 'uglifier', '>= 1.3.0'
 end
 
-gem 'jquery-rails', :git => 'git@github.com:indirect/jquery-rails.git'
+gem 'jquery-rails' #, :git => 'git@github.com:indirect/jquery-rails.git'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'protected_attributes'
