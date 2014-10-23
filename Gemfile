@@ -5,7 +5,7 @@ gem "rails", "~> 4.0.0"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'haml'
 gem 'haml-rails'
 gem 'jquery-ui-rails'
@@ -20,6 +20,15 @@ group :assets do
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.3.0'
+end
+
+
+group :development do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 gem 'jquery-rails' #, :git => 'git@github.com:indirect/jquery-rails.git'
