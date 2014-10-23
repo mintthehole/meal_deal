@@ -33,7 +33,7 @@ end
 
 gem 'jquery-rails' #, :git => 'git@github.com:indirect/jquery-rails.git'
 gem 'devise'
-gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin'
 gem 'protected_attributes'
 
 # To use ActiveModel has_secure_password
