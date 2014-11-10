@@ -17,14 +17,15 @@ class Order < ActiveRecord::Base
     return cart, total
   end
 
-  def self.save_item(order_items, user)
+  def self.build_order(order_items, user)
     order = Order.new.tap do |order|
       order.user = user
       @cart, total_price = build_cart(order_items)
       order.total_price = total_price
     end
-    order.save
-    OrderItem.save_order_items(order, @cart)
+    order.items =  OrderItem.build_order_items(order, @cart)
+    # order.save
+
     order
   end
 

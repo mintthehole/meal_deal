@@ -1,4 +1,5 @@
 ActiveAdmin.register Order do
+
   index do
     column :user_name do |order|
       order.user.email

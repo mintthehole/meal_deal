@@ -149,14 +149,14 @@ ActiveAdmin.setup do |config|
   #
   # Set the CSV builder options (default is {})
   # config.csv_options = {}
-
+  config.allow_comments = false
 
   # == Menu System
   #
   # You can add a navigation menu to be used in your application, or configure a provided menu
-  # 
+  #
   # To change the default utility navigation to show a link to your website & a logout btn
-  # 
+  #
   #   config.namespace :admin do |admin|
   #     admin.build_menu :utility_navigation do |menu|
   #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
@@ -179,15 +179,15 @@ ActiveAdmin.setup do |config|
   #
   # To disable/customize for the :admin namespace:
   #
-  #   config.namespace :admin do |admin|
-  #
-  #     # Disable the links entirely
-  #     admin.download_links = false
-  #
-  #     # Only show XML & PDF options
-  #     admin.download_links = [:xml, :pdf]
-  #
-  #   end
+    config.namespace :admin do |admin|
+
+      # Disable the links entirely
+      # admin.download_links = false
+
+      # Only show XML & PDF options
+      admin.download_links = [:csv]
+
+    end
 
 
   # == Pagination
@@ -200,7 +200,7 @@ ActiveAdmin.setup do |config|
 
   # == Filters
   #
-  # By default the index screen includes a “Filters” sidebar on the right 
+  # By default the index screen includes a “Filters” sidebar on the right
   # hand side with a filter for each attribute of the registered model.
   # You can enable or disable them for all resources here.
   #

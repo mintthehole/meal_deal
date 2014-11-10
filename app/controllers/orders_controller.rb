@@ -2,7 +2,7 @@ class OrdersController < InheritedResources::Base
   before_filter :authenticate_user!
 
   def add_to_cart
-    if params[:available_quantity] < params[:order]
+    if params[:available_quantity].to_i < params[:order].to_i
       @invalid_input = true
     else
       session[:order] ||={}
@@ -16,7 +16,12 @@ class OrdersController < InheritedResources::Base
   end
 
   def create
-    @order = Order.save_item(session[:order], current_user)
+    @order = Order.build_order(session[:order], current_user)
+    if @order.save
+      session[:order] = {}
+    else
+
+    end
     flash[:notice] = "Order Placed successfully"
     redirect_to root_path
   end

@@ -12,6 +12,8 @@
             %th
               Name
             %th
+              Veg/Non-Veg
+            %th
               Price
             %th
               Available Quantity
@@ -23,6 +25,7 @@
           - cat.items.each do |item|
             %tr
               %td= item.name
+              %td= item.veg? ? "Veg" : "Non-Veg"
               %td= item.price
               %td= item.quantity
               - if current_user

@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Meal    
+    %title Meal
     = javascript_include_tag "application"
     = stylesheet_link_tag    "bootstrap", :media => "all"
     = stylesheet_link_tag    "application", :media => "all"
@@ -12,10 +12,10 @@
     .container
       = bootstrap_flash
       = yield
-    %footer{:style => "bottom:0px;background-color:#EEE"}     
-      %hr 
+    %footer{:style => "bottom:0px;background-color:#EEE"}
+      %hr
       .container
-        %p.text-muted.pull-right 
+        %p.text-muted.pull-right
           Designed By
           %a.block{:href => "http://www.webasiansystems.com", :target => "_blank"}
             %a.nonblock{:href => "http://www.webasiansystems.com"}
@@ -32,4 +32,4 @@
             %p Please add items by clicking "Add to Cart"
           .modal-footer
             %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Order More
-            = link_to "Checkout", orders_path, :method => :post, :class => 'btn btn-primary'
+            = link_to "Checkout", orders_path, :method => :post, :remote => true, :class => 'btn btn-primary'
