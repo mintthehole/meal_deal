@@ -24,12 +24,13 @@
       .modal-dialog
         .modal-content
           .modal-header
-            %button.close{"data-dismiss" => "modal", :type => "button"}
+            %a.close{:href => root_path}
               %span{"aria-hidden" => "true"} &times;
               %span.sr-only Close
             %h4.modal-title Your Food Cart
           .modal-body
             %p Please add items by clicking "Add to Cart"
           .modal-footer
-            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Order More
-            = link_to "Checkout", orders_path, :method => :post, :remote => true, :class => 'btn btn-primary'
+            = link_to "Order More", root_path, :method => :get,  :class => 'btn btn-default'
+            = link_to "Checkout", orders_path, :method => :post, :remote => true, :class => 'btn btn-primary checkout'
+  :javascript

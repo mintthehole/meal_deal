@@ -7,7 +7,7 @@
         %span.icon-bar
         %span.icon-bar
       %a.navbar-brand{:href => root_path}
-        = image_tag "logo.png", :size => "150x50"
+        = image_tag "logo.png", :size => "200x75"
         = image_tag "top.jpg", :width => "99%"
 
     .pull-right{:style => "margin-top: -50px; margin-right: 20px;"}
@@ -15,8 +15,11 @@
         - if current_user
           %ul.nav.navbar-nav.navbar-right
             %li{:role => "presentation"}
-              %a{:href => edit_user_registration_path, :role => "menuitem", :tabindex => "-1"} 
+              %a{:href => edit_user_registration_path, :role => "menuitem", :tabindex => "-1"}
                 = current_user.email
+            %li{:role => "presentation"}
+              %a{:href => "/show_cart", "data-remote" => true, :role => "menuitem", :tabindex => "-1"}
+                View Cart
             %li{:role => "presentation"}
               %a{:href => edit_user_registration_path, :role => "menuitem", :tabindex => "-1"} Edit Profile
             %li{:role => "presentation"}

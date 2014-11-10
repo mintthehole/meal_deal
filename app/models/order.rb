@@ -23,9 +23,8 @@ class Order < ActiveRecord::Base
       @cart, total_price = build_cart(order_items)
       order.total_price = total_price
     end
-    order.items =  OrderItem.build_order_items(order, @cart)
+    order.order_items =  OrderItem.build_order_items(order, @cart)
     # order.save
-
     order
   end
 

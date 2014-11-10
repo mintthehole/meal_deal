@@ -1,11 +1,8 @@
-<% if @invalid_input %>
-  alert("Should be less than available quantity");
-<% elsif @cart_hash.present? %>
+<% if @cart_hash.present? %>
   $('.modal-body').html("<%= escape_javascript render :partial => 'add_to_cart' %>");
   $('.modal').modal('show');
   $('.checkout').show();
 <% else %>
-
   $('.modal').modal('show');
   $('.modal-body').html("Add Items to the Cart");
   $('.checkout').hide();

@@ -8,6 +8,8 @@
       Quantity
     %th
       Total
+    %th
+      Remove
   - @cart_hash.each do |hash|
     %tr
       %td
@@ -18,6 +20,8 @@
         = hash[:order]
       %td
         = hash[:item_price]
+      %td
+        = link_to "[X]", "/remove_item_from_cart?id=#{hash[:id]}", :remote=>true, :class => "disable_cart_link"
   %tr
     %td
     %td
@@ -26,4 +30,3 @@
     %td{:colspan => 4}
       = @total
 
-  

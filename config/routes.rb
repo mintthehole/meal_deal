@@ -6,12 +6,14 @@ Meal::Application.routes.draw do
   get "dashboard/index"
   match "about_us" => "home#about_us", :via => :get
   match "contact--feedback" => "home#contact--feedback" , :via => :get
-  resources :orders do 
+  resources :orders do
     collection do
       post 'add_to_cart'
     end
   end
 
+  match "/show_cart" => "orders#view_cart", :via => :get
+  match "/remove_item_from_cart" => "orders#remove_from_cart", :via => :get
   devise_for :users
 
   # The priority is based upon order of creation:

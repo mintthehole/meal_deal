@@ -1,0 +1,10 @@
+<% if @sucess %>
+  $('.modal-body').html("<%= escape_javascript render :partial => 'order_cart' %>");
+  $('.modal').modal('show');
+  $('.checkout').hide();
+<% else %>
+  $('.modal').modal('show');
+  $('.modal-body').html("<%= escape_javascript render :partial => 'order_errors' %>");
+  $('.modal-body').append("<%= escape_javascript render :partial => 'add_to_cart' %>");
+  $('.checkout').show();
+<% end %>

@@ -1,0 +1,9 @@
+.notice
+  .bg-danger
+    - errors = []
+    - errors = @order.order_items.collect(&:errors).collect(&:full_messages).flatten rescue []
+    - errors << @order.errors.full_messages rescue []
+    - errors = errors.flatten
+    - errors.uniq.each do |msg|
+      = msg
+      %br

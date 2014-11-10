@@ -15,14 +15,29 @@ class OrdersController < InheritedResources::Base
     end
   end
 
+  def remove_from_cart
+    session[:order].delete(params[:id])
+    @cart_hash, @total = Order.build_cart(session[:order])
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def view_cart
+    @cart_hash, @total = Order.build_cart(session[:order])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @order = Order.build_order(session[:order], current_user)
     if @order.save
       session[:order] = {}
+      @sucess = true
     else
-
+      @cart_hash, @total = Order.build_cart(session[:order])
+      @sucess = false
     end
-    flash[:notice] = "Order Placed successfully"
-    redirect_to root_path
   end
 end
