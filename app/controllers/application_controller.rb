@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       conv2 = Time.at(time_2.hour * 60 * 60 + time_2.min * 60 + time_2.sec)
       if conv1 > conv2
         @time_limit_exceeded = true
-        flash.now[:notice] = "You cannot order beyond #{time_2.strftime("%H:%M:%S")}"
+        flash.now[:notice] = "You cannot order beyond #{time_2.strftime("%H:%M:%S")}. Please comeback tomorrow."
         false
       end
     end
