@@ -7,7 +7,6 @@ class OrdersController < InheritedResources::Base
     else
       session[:order] ||={}
       session[:order][params[:item_id]] = params[:order]
-      p session[:order]
       @cart_hash, @total = Order.build_cart(session[:order])
     end
     respond_to do |format|
