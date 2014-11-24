@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
         current_time = Time.zone.now
         timings = Timing.all
         timings.each do |timing|
-          if current_time.hour >= timing.start_time.hour && current_time.min >= timing.start_time.min && current_time.hour <= timing.end_time.hour && current_time.min <= timing.end_time.min
+          if current_time.hour >= timing.start_time.hour && current_time.hour <= timing.end_time.hour
             allow = true
             break
           end
