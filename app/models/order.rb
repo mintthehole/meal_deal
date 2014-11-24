@@ -38,12 +38,12 @@ class Order < ActiveRecord::Base
 
   def send_sms
     ModelMailer.oder_notification(self).deliver
-    msg = "Thanks for ordering from currypots.com. Total Order Amout is #{total_price || 0}"
-    user = User.last
-    no = Phoner::Phone.parse(user.phone_no, :country_code => '91').to_s
-    url = "http://bulkpush.mytoday.com/BulkSms/SingleMsgApi?feedid=345695&username=8904531501&password=jgaaw&To="+no+"&Text="+msg
-    require 'net/http'
-    result = Net::HTTP.get(URI.parse(URI.encode(url)))
+      msg = "Thanks for ordering from currypots.com. Total Order Amout is #{total_price || 0}"
+      user = User.last
+      no = Phoner::Phone.parse(user.phone_no, :country_code => '91').to_s
+      url = "http://bulkpush.mytoday.com/BulkSms/SingleMsgApi?feedid=123&username=123&password=123&To="+no+"&Text="+msg
+      require 'net/http'
+      result = Net::HTTP.get(URI.parse(URI.encode(url)))
   end
 
 end

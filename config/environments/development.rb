@@ -32,8 +32,8 @@ Meal::Application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => "gmail.com",
-    :user_name => "currypots85@gmail.com",
-    :password => "Jonathan!987"
+    :user_name => "123@gmail.com",
+    :password => "Jonatha111"
   }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
