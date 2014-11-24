@@ -1,0 +1,70 @@
+%HTML{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %HEAD
+    %TITLE Speaker 1 brown
+    %META{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+      %META{:content => "MSHTML 9.00.8112.16561", :name => "GENERATOR"}
+  %BODY
+    %TABLE{:border => "0", :cellPadding => "0", :cellSpacing => "0", :width => "100%"}
+      %TR
+        %TD{:style => "TEXT-ALIGN: center", :width => "100%"}
+          %TABLE{:border => "0", :cellPadding => "0", :cellSpacing => "0", :style => "TEXT-ALIGN: left; BORDER-LEFT: #808080 1px solid; MARGIN: 0px auto; WIDTH: 600px; FONT-FAMILY: 'Times New Roman', Times, serif; BORDER-RIGHT: #808080 1px solid", :width => "600"}
+            %TR
+              %TD{:width => "600"}
+                %TABLE{:border => "0", :cellPadding => "0", :cellSpacing => "0", :width => "600"}
+                  %TR
+                    %TD{:vAlign => "top", :width => "24"}
+                      
+                    %TD{:style => "TEXT-ALIGN: center; FONT-FAMILY: 'Times New Roman', Times, serif; COLOR: #4a4a4a; FONT-SIZE: 14px", :width => "287"}
+                      %DIV{:style => "FONT-SIZE: 30px"} Currypots.com
+                      %DIV Now in Bangalore
+                    %TD{:height => "204", :style => "PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: 289px; PADDING-RIGHT: 0px; DISPLAY: block; HEIGHT: 204px; PADDING-TOP: 0px", :width => "289"}
+                      = image_tag('http://www.currypots.com/assets/logo-515edffe2168fac841a8a84596306270.png')
+            %TR
+              %TD{:bgColor => "#000"} &nbsp;
+            %TR
+              %TD{:height => "50"} &nbsp;&nbsp;MY Orders
+            %td{:align => "center", :bgcolor => "#FFFFFF", :valign => "top", :width => "650"}
+              %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "600"}
+                %tr
+                  %td{:align => "center", :bgcolor => "#CCCCCC", :height => "33", :valign => "top", :width => "40"} No.
+                  %td{:align => "center", :bgcolor => "#CCCCCC", :height => "33", :valign => "top", :width => "232"}
+                    %p Name
+                  %td{:align => "center", :bgcolor => "#CCCCCC", :height => "33", :valign => "top", :width => "58"} QTY
+                  %td{:align => "center", :bgcolor => "#CCCCCC", :border => "5", :bordercolor => "#FF0000", :bordercolorlight => "#FF0000", :style => "text-align:center", :valign => "top",:height => "33", :width => "253"} Amount
+                  %td{:align => "center", :bgcolor => "#CCCCCC", :height => "33", :valign => "top", :width => "17"} &nbsp;
+                - @order.order_items.each_with_index do |oi,i|
+                  %tr
+                    %td{:align => "center", :height => "33", :valign => "top", :width => "40"}
+                      = i +1
+                    %td{:align => "center", :height => "33", :valign => "top", :width => "232"}
+                      %p
+                        = oi.item.name
+                    %td{:align => "center", :height => "33", :valign => "top", :width => "58"}
+                      = oi.quantity
+                    %td{:align => "center", :bgcolor => "#fff", :border => "5", :bordercolor => "#FF0000", :bordercolorlight => "#FF0000", :style => "text-align:center", :valign => "top", :width => "253"}
+                      = oi.quantity.to_i * oi.unit_price.to_i
+                    %td{:align => "center", :bgcolor => "#FFFFFF", :height => "33", :valign => "top", :width => "17"} &nbsp;
+                %tr
+                  %td
+                  %td
+                  %td
+                    Total
+                  %td
+                    = @order.total_price
+            %TR
+              %TD
+                %TABLE{:border => "0", :cellPadding => "25", :cellSpacing => "0", :width => "600"}
+                  %TR
+                    %TD{:style => "FONT-FAMILY: 'Times New Roman', Times, serif; COLOR: #666666; FONT-SIZE: 15px", :vAlign => "bottom", :width => "300"}
+                      %P Sincerely,
+                      %P
+                        John Smith
+                        %BR
+                          Manager Acounts
+                          %BR Company software
+                    %TD{:style => "FONT-FAMILY: 'Times New Roman', Times, serif; COLOR: #666666; FONT-SIZE: 15px", :vAlign => "bottom", :width => "300"}
+                      %P
+                        Tel: your telephone
+                        %BR
+                          Fax: your fax
+                          %BR Web: your web site

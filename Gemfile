@@ -31,6 +31,9 @@ group :production do
   gem 'pg'
 end
 
+
+gem "phone"
+
 gem 'jquery-rails' #, :git => 'git@github.com:indirect/jquery-rails.git'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'

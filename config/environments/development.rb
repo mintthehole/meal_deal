@@ -21,12 +21,20 @@ Meal::Application.configure do
 
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
-  config.action_mailer.default_url_options = { :host => "dev.yourhost.com" }
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "gmail.com",
+    :user_name => "currypots85@gmail.com",
+    :password => "Jonathan!987"
+  }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

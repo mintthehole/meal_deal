@@ -13,6 +13,7 @@ Meal::Application.routes.draw do
   end
 
   match "/show_cart" => "orders#view_cart", :via => :get
+  match "/terms_and_conditions" => "home#terms", :via => :get
   match "/remove_item_from_cart" => "orders#remove_from_cart", :via => :get
   devise_for :users
 

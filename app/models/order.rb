@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
   has_many :items, :through => :order_items
   attr_accessible :total_price, :user_id
   validates_presence_of :user_id
-
+  after_create :send_sms
   def self.build_cart(session)
     cart = []
     total = 0
@@ -35,4 +35,15 @@ class Order < ActiveRecord::Base
     end
     str.html_safe
   end
+
+  def send_sms
+    ModelMailer.oder_notification(self).deliver
+    msg = "Thanks for ordering from currypots.com. Total Order Amout is #{total_price || 0}"
+    user = User.last
+    no = Phoner::Phone.parse(user.phone_no, :country_code => '91').to_s
+    url = "http://bulkpush.mytoday.com/BulkSms/SingleMsgApi?feedid=345695&username=8904531501&password=jgaaw&To="+no+"&Text="+msg
+    require 'net/http'
+    result = Net::HTTP.get(URI.parse(URI.encode(url)))
+  end
+
 end

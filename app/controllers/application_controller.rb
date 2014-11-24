@@ -4,15 +4,27 @@ class ApplicationController < ActionController::Base
   before_filter :check_time, if: :current_user
 
   def check_time
-    if Timing.last.present?
-      time_1 = Time.zone.now
-      time_2 = Timing.last.end_time
-      conv1 = Time.at(time_1.hour * 60 * 60 + time_1.min * 60 + time_1.sec)
-      conv2 = Time.at(time_2.hour * 60 * 60 + time_2.min * 60 + time_2.sec)
-      if conv1 > conv2
-        @time_limit_exceeded = true
-        flash.now[:notice] = "You cannot order beyond #{time_2.strftime("%H:%M:%S")}. Please comeback tomorrow."
-        false
+    if current_user.present?
+      if Timing.last.present?
+        allow = false
+        current_time = Time.zone.now
+        timings = Timing.all
+        timings.each do |timing|
+          if current_time.hour >= timing.start_time.hour && current_time.min >= timing.start_time.min && current_time.hour <= timing.end_time.hour && current_time.min <= timing.end_time.min
+            allow = true
+            break
+          end
+        end
+        
+        timings_str = []
+        timings.each do |time|
+          timings_str << "#{time.start_time.hour} : #{time.start_time.min}  -  #{time.end_time.hour}  : #{time.end_time.min}"
+        end
+        unless allow
+          @time_limit_exceeded = true
+          flash.now[:notice] = "Orders Can't be Processed now. Come Back in these timings #{timings_str.join(',')}"
+          false
+        end
       end
     end
   end

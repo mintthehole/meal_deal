@@ -23,7 +23,7 @@ class OrdersController < InheritedResources::Base
   end
 
   def view_cart
-    @cart_hash, @total = Order.build_cart(session[:order])
+    @cart_hash, @total = Order.build_cart(session[:order] ||={})
     respond_to do |format|
       format.js
     end
